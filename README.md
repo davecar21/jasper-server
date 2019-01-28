@@ -1,27 +1,34 @@
 # JasperReport
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
+Jasper Report
 
-## Development server
+## Folder Structure
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+src/                         project source code
+|- app/                      app components
+|  |- core/                  core module (singleton services, single-use components etc..)
+|  |  |- components/         app core components
+|  |  |- services/           app core services
+|  |  |+- ...                additional app core files
+|  |- shared/                shared module  (common components, modules, interfaces, directives, pipes etc..)
+|  |  |- modules/            app shared modules
+|  |  |- components/         app shared components
+|  |  |- interfaces/         app shared interfaces
+|  |  |- directives/         app shared directives
+|  |  |- pipes/              app shared pipes
+|  |  |+- ...                additional app shared files
+|  |- app.component.*        app root component (shell)
+|  |- app.module.ts          app root module definition
+|  |- app-routing.module.ts  app routes
+|  +- ...                    additional modules and components
+|- assets/                   app assets (images, fonts, sounds...)
+|  |- images/                images files
+|  |- fonts/                 fonts files
+|- environments/             environment variables
+|- theme/                    app global scss variables and theme
+|- index.html                html entry point
+|- main.scss                 global style entry point
+|- main.ts                   app entry point
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## References
+https://github.com/ngx-rocket/starter-kit
