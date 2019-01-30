@@ -3,9 +3,12 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // modules
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModules } from './shared/modules/ng-bootstrap.module';
+
 import { AppRoutingModule } from './app-routing.module';
-import { NgMatModules } from './shared/modules/ng-material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'
 
 // services
 import { SampleService } from './core/services/sample.service'
@@ -19,10 +22,14 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    NgMatModules,
-    HttpClientModule
+
+    NgbModule,
+    NgbModules,
+
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     SampleService

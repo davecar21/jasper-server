@@ -8,12 +8,19 @@ import { SampleService } from './core/services/sample.service';
 })
 export class AppComponent {
   title = 'JasperReport';
+  
+  model = {
+    left: true,
+    middle: false,
+    right: false
+  };
 
-  constructor(private sampleService: SampleService){
-    alert('a')
+  isCollapsed = false;
+
+  constructor(private sampleService: SampleService) {
     this.sampleService.sampleGet().subscribe(
-      result=> console.log('sample result', result),
-      error=> console.log('sample error', error)
+      result => console.log('sample result', result),
+      error => console.log('sample error', error)
     )
   }
 }
