@@ -30,5 +30,15 @@ src/                         project source code
 |- main.scss                 global style entry point
 |- main.ts                   app entry point 
 ```
+
+## Ng Generate
+
+to remove spec add `--spec=false`
+
+## Error Issues
+
+### Failed To Install Node-Sass
+Fix: connect to VPN then run `npm i`
+
 ## References
 https://github.com/ngx-rocket/starter-kit

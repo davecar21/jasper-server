@@ -8,6 +8,7 @@ import { NgMatModules } from './shared/modules/ng-material.module';
 import { HttpClientModule } from '@angular/common/http';
 
 // services
+import { SampleService } from './core/services/sample.service'
 
 // components
 import { AppComponent } from './app.component';
@@ -23,7 +24,9 @@ import { AppComponent } from './app.component';
     NgMatModules,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    SampleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
