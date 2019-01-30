@@ -15,10 +15,12 @@ import { SampleService } from './core/services/sample.service'
 
 // components
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navigation/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
