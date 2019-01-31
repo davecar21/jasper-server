@@ -12,15 +12,19 @@ import { FormsModule } from '@angular/forms'
 
 // services
 import { SampleService } from './core/services/sample.service'
+import { AlertService } from './core/services/alert.service';
 
 // components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
+import { AlertComponent } from './components/alert/alert.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { NavbarComponent } from './navigation/navbar/navbar.component';
     FormsModule
   ],
   providers: [
-    SampleService
+    SampleService,
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

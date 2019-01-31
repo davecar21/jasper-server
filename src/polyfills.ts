@@ -22,6 +22,12 @@
  *  This also includes Android Emulators with older versions of Chrome and Google Search/Googlebot
  */
 
+ /**
+  * Some features used by Angular 7 are not yet supported natively by all major browsers, 
+  * polyfills are used to add support for features where necessary so your Angular 7 
+  * application works across all major browsers.
+  */
+
 // import 'core-js/es6/symbol';
 // import 'core-js/es6/object';
 // import 'core-js/es6/function';
@@ -36,6 +42,8 @@
 // import 'core-js/es6/map';
 // import 'core-js/es6/weak-map';
 // import 'core-js/es6/set';
+import 'core-js/es6/reflect';
+import 'core-js/es7/reflect';
 
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
