@@ -47,4 +47,22 @@ https://www.npmjs.com/package/bootstrap-css-only
 ## References
 https://github.com/ngx-rocket/starter-kit
 
-testmikay
+## Git Commands
+
+push code
+`git add .` (stage all changes)
+`git commit -m "commit message"` (commit changes)
+`git push origin <master | repo name>` (push changes)
+
+pull code
+`git pull origin <master | repo name>`
+
+create new branch
+`git branch <branch name>` (add branch)
+`git checkout <branch name>` (switch branch)
+`git push origin <branch name>` (push created branch)
+
+pull repository
+`git clone <link.git>`
+
+
