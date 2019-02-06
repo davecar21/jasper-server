@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // modules
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbModules } from './shared/modules/ng-bootstrap.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,20 +17,20 @@ import { AlertService } from './core/services/alert.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    AlertComponent
+    AlertComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-
-    NgbModule,
-    NgbModules,
+    NgbModule.forRoot(),
 
     AppRoutingModule,
     HttpClientModule,
@@ -41,6 +40,9 @@ import { AlertComponent } from './components/alert/alert.component';
     SampleService,
     AlertService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ModalComponent
+  ]
 })
 export class AppModule { }

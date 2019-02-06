@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SampleService } from './core/services/sample.service';
 import { environment } from './../environments/environment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class AppComponent {
     right: false
   };
 
+  testData;
+
   isCollapsed = false;
 
   // data body
@@ -29,9 +32,10 @@ export class AppComponent {
   }
 
   constructor(private sampleService: SampleService) {
+ 
     // consume service for get
     this.sampleService.sampleGet().subscribe(
-      result => console.log('sample view category result', result),
+      result => console.log('sample view category result', this.testData = result),
       error => console.log('sample view category error', error)
     )
   }
@@ -43,4 +47,5 @@ export class AppComponent {
       error => console.log('samplepost error', error)
     )
   }
+
 }
