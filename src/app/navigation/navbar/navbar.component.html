@@ -12,12 +12,64 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" (click)="openFormModal()">Add Category</a>
+        <a href="#" class="nav-link">
+          <fa name="folder" placement="top" ngbTooltip="Add category" (click)="open(content)"></fa>
+        </a>
       </li>
 
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">
+          <fa name="folder-o" placement="bottom" ngbTooltip="Add Sub-category"></fa>
+        </a>
+      </li> -->
+
       <li class="nav-item">
-        <a class="nav-link" href="#">Add Sub-Category</a>
+        <a href="#" class="nav-link">
+          <fa name="edit" placement="top" ngbTooltip="Edit category"></fa>
+        </a>
+      </li>
+
+      <!-- <li class="nav-item">
+        <a href="#" class="nav-link">
+          <fa name="edit" placement="top" ngbTooltip="Edit sub-category"></fa>
+        </a>
+      </li> -->
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <fa name="trash" placement="top" ngbTooltip="Delete category"></fa>
+        </a>
       </li>
     </ul>
   </div>
 </nav>
+
+<!-- Modals -->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Create New Category</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="name">Name: </label>
+        <input type="text" id="categoryName" class="form-control" name="label" [(ngModel)]="label">
+        <!-- <p>{{ categoryName }}</p> -->
+        <br>
+        <label for="description">Description: </label>
+        <input type="text" id="categoryDesc" class="form-control" name="description" [(ngModel)]="description">
+        <!-- <p>{{ categoryDesc }}</p> -->
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="addCategory()">Submit</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Cancel</button>
+  </div>
+</ng-template>

@@ -42,7 +42,7 @@ export class AppComponent {
 
   addCategory() {
     // consume service for post
-    this.sampleService.samplPOST(this.sampleData).subscribe(
+    this.sampleService.samplePOST(this.sampleData).subscribe(
       result => console.log('samplepost result', result),
       error => console.log('samplepost error', error)
     )

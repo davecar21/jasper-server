@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl:"http://localhost:8080/jasperserver",
-  categoriesUrl: "http://localhost:3000/categories"
+  categoriesUrl: "http://localhost:3000/categories",
+  addCategoriesUrl: "http://localhost:3000/"
 };
 
 /*

@@ -25,7 +25,7 @@ export class SampleService {
   }
 
   // post service
-  samplPOST(body) {
-    return this.http.post(environment.categoriesUrl, body ,httpOptions)
+  samplePOST(body) {
+    return this.http.post(environment.addCategoriesUrl, body ,httpOptions)
   }
 }

@@ -4,10 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // modules
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModules } from './shared/modules/ng-bootstrap.module';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 // services
 import { SampleService } from './core/services/sample.service'
@@ -30,19 +32,21 @@ import { ModalComponent } from './components/modal/modal.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NgbModule.forRoot(),
+
+    NgbModule,
+    NgbModules,
+    AngularFontAwesomeModule,
 
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     SampleService,
     AlertService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [
-    ModalComponent
-  ]
+  entryComponents: [NavbarComponent]
 })
 export class AppModule { }

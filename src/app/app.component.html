@@ -8,7 +8,7 @@
 
 
 <div class="btn-group btn-group-toggle">
-  <label class="btn-primary" ngbButtonLabel>
+  <!-- <label class="btn-primary" ngbButtonLabel>
     <input type="checkbox" ngbButton [(ngModel)]="model.left"> Left (pre-checked)
   </label>
   <label class="btn-primary" ngbButtonLabel>
@@ -17,24 +17,24 @@
   <label class="btn-primary" ngbButtonLabel>
     <input type="checkbox" ngbButton [(ngModel)]="model.right"> Right
   </label>
-</div>
+</div> -->
 <hr>
 
 <br>
 
-<p>
-  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
-    aria-controls="collapseExample">
-    Toggle
-  </button>
-</p>
-<div id="collapseExample" [ngbCollapse]="isCollapsed">
-  <div class="card">
-    <div class="card-body">
-      You can collapse this card by clicking Toggle
+  <!-- <p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseExample">
+      Toggle
+    </button>
+  </p>
+  <div id="collapseExample" [ngbCollapse]="isCollapsed">
+    <div class="card">
+      <div class="card-body">
+        You can collapse this card by clicking Toggle
+      </div>
     </div>
-  </div>
-</div>
+  </div> -->
 
 <router-outlet></router-outlet>
 
