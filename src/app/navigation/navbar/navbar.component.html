@@ -55,15 +55,17 @@
   </div>
 
   <div class="modal-body">
-    <form>
+    <form [formGroup]="createCategoryForm">
       <div class="form-group">
-        <label for="name">Name: </label>
-        <input type="text" id="categoryName" class="form-control" name="label" [(ngModel)]="label">
-        <!-- <p>{{ categoryName }}</p> -->
+        <label for="name">
+          Name:
+          <input type="text" name="label" id="categoryName" class="form-control" formControlName="label">
+        </label>
         <br>
-        <label for="description">Description: </label>
-        <input type="text" id="categoryDesc" class="form-control" name="description" [(ngModel)]="description">
-        <!-- <p>{{ categoryDesc }}</p> -->
+        <label for="description">
+          Description:
+          <input type="text" name="description" id="categoryDesc" class="form-control" formControlName="description">
+        </label>
       </div>
     </form>
   </div>

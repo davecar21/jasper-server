@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SampleService } from './../../core/services/sample.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -10,16 +11,17 @@ import { SampleService } from './../../core/services/sample.service';
 export class NavbarComponent implements OnInit {
   closeResult: string;
 
-  model;
-  label;
-  description;
+  createCategoryForm = new FormGroup({
+    label: new FormControl(''),
+    description: new FormControl('')
+  });
 
     // sample data body
 
     public testData = {
       "version": 0,
       "permissionMask": 1,
-      "label":'',
+      "label": '',
       "description": '',
       "uri": "/reports"
     }
@@ -49,21 +51,25 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     
-    console.log("JSONsss: ", this.testData);
+    // console.log("JSONsss: ", this.testData);
   }
 
 
   addCategory(body){
-    console.log(this.label);
-    console.log(this.description);
 
     console.log("JSON: ", this.testData);
+    this.testData.label = this.createCategoryForm.value['label'];
+    this.testData.description = this.createCategoryForm.value['description'];
     
+    // TODO: Use EventEmitter with form value
+    console.warn(this.createCategoryForm.value);
     
-    // this.sampleservice.samplePOST(this.sampleData).subscribe(
-    //   result => console.log('samplepost result', result),
-    //   error => console.log('samplepost error', error)
-    // )
+    this.sampleservice.samplePOST(this.testData).subscribe(
+      result => console.log('samplepost result', result),
+      error => console.log('samplepost error', error)
+    )
+
+    
   } 
 
 }
