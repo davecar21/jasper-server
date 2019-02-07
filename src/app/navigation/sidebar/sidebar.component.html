@@ -1,8 +1,26 @@
-<!-- <button class="btn btn-primary btn-block" *ngFor="let folder of folders">
-  {{folder.label._text}}
-</button> -->
-<div class="list-group">
-  <button *ngFor="let folder of folders" type="button" class="list-group-item list-group-item-action">
-    {{folder.label}}
-  </button>
+<div class="container-fluid">
+  <div class="row">
+    <ul class="list-group">
+      <li class="list-group-item" id="folder-collapse" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        <fa name="chevron-down" *ngIf="!isCollapsed"></fa>
+        <fa name="chevron-up" *ngIf="isCollapsed"></fa>
+        <span class="folder-name">Folders</span>
+      </li>
+      <li id="collapseExample" [ngbCollapse]="isCollapsed" *ngFor="let folder of folders" class="list-group-item list-group-item-action" (click)="showSubcategories(folder.uri, $event)">
+        <fa name="folder"></fa>
+        <span class="folder-name">{{folder.label}}</span>
+
+        <span class="open-folder-icon">
+          <fa name="folder-open" placement="right" ngbTooltip="Show subcategories"></fa>
+        </span>
+
+        <ul class="list-group list-subgroup" *ngIf="category != null">
+          <li class="list-group-item" *ngFor="let category_list of category">
+            {{ category_list.label }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </div>

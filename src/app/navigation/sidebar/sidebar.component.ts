@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FolderService } from 'src/app/core/services/folder/folder.service';
+import { FolderService } from '../../core/services/folder/folder.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,7 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
 
+  public isCollapsed = false;
+
   folders:Observable<any>;
+  category:Observable<any>;
 
   constructor(private folderService:FolderService) { }
 
@@ -17,6 +20,23 @@ export class SidebarComponent implements OnInit {
     this.folderService.getFolders().subscribe(
       result=>{
         this.folders = result.resourceLookup;
+      }
+    );
+  }
+
+  showSubcategories(uri, event:any){
+    console.warn(event.target);
+    var split_string = uri.split("/");
+    console.log(split_string[2]);
+    this.category = null;
+
+    this.folderService.getSubfolder(split_string[2]).subscribe(
+      res => {
+        this.category = res.resourceLookup;
+        console.log(this.category);
+      },
+      error => {
+        console.error(error);
       }
     );
   }

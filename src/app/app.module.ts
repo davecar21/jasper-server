@@ -14,12 +14,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 // services
 import { SampleService } from './core/services/sample.service'
 import { AlertService } from './core/services/alert.service';
+import { FolderService } from './core/services/folder/folder.service'
 
 // components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { SidebarComponent } from './navigation/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ModalComponent } from './components/modal/modal.component';
     AppComponent,
     NavbarComponent,
     AlertComponent,
-    ModalComponent
+    ModalComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { ModalComponent } from './components/modal/modal.component';
   ],
   providers: [
     SampleService,
-    AlertService
+    AlertService,
+    FolderService
   ],
   bootstrap: [AppComponent],
   entryComponents: [NavbarComponent]
