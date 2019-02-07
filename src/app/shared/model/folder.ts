@@ -6,4 +6,5 @@ export class Folder {
     uri: string;
     version: string;
     resourceType: string;
+    description: string;
   }

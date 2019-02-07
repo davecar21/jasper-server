@@ -19,13 +19,7 @@ export class CategoryModalComponent implements OnInit {
   });
 
   
-  public testData = {
-    "version": 0,
-    "permissionMask": 1,
-    "label":'',
-    "description": '',
-    "uri": "/reports"
-  }
+  public folderInfo = { "label":'', "description": ''}
 
 
   constructor(public activeModal: NgbActiveModal, private folderService:FolderService) { }
@@ -41,13 +35,13 @@ export class CategoryModalComponent implements OnInit {
   
   addCategory(){
 
-    this.testData.label = this.createCategoryForm.value['label'];
-    this.testData.description = this.createCategoryForm.value['description'];
+    this.folderInfo.label = this.createCategoryForm.value['label'];
+    this.folderInfo.description = this.createCategoryForm.value['description'];
     
     // TODO: Use EventEmitter with form value
     console.warn(this.createCategoryForm.value);
     
-    this.folderService.createFolder(this.testData).subscribe(
+    this.folderService.createFolder(this.folderInfo).subscribe(
       result => console.log('Create Folder result', result),
       error => console.log('Create Folder error', error)
     )
