@@ -13,4 +13,8 @@ export class FolderService {
   getFolders(): Observable<any> {
       return this.http.get(environment.categoriesUrl)
   }
+
+  createFolder(body : any) {
+    return this.http.post(environment.addCategoriesUrl, body)
+  }
 }

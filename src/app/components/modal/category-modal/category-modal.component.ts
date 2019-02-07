@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms';
 import { SampleService } from 'src/app/core/services/sample.service';
+import { FolderService } from 'src/app/core/services/folder/folder.service';
+
 
 
 @Component({
@@ -10,8 +12,6 @@ import { SampleService } from 'src/app/core/services/sample.service';
   styleUrls: ['./category-modal.component.scss']
 })
 export class CategoryModalComponent implements OnInit {
-
-  closeResult: string;
 
   createCategoryForm = new FormGroup({
     label: new FormControl(''),
@@ -28,7 +28,7 @@ export class CategoryModalComponent implements OnInit {
   }
 
 
-  constructor(public activeModal: NgbActiveModal, private sampleservice:SampleService) { }
+  constructor(public activeModal: NgbActiveModal, private folderService:FolderService) { }
 
   ngOnInit() {
    
@@ -39,19 +39,17 @@ export class CategoryModalComponent implements OnInit {
   }
 
   
-  addCategory(body){
+  addCategory(){
 
-    console.log("JSONSSS: ", this.testData);
     this.testData.label = this.createCategoryForm.value['label'];
     this.testData.description = this.createCategoryForm.value['description'];
     
     // TODO: Use EventEmitter with form value
     console.warn(this.createCategoryForm.value);
-    console.log(body);
     
-    this.sampleservice.samplePOST(this.testData).subscribe(
-      result => console.log('samplepost result', result),
-      error => console.log('samplepost error', error)
+    this.folderService.createFolder(this.testData).subscribe(
+      result => console.log('Create Folder result', result),
+      error => console.log('Create Folder error', error)
     )
   } 
   
