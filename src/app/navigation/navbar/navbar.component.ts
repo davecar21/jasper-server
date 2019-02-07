@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { SampleService } from './../../core/services/sample.service';
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
   constructor(private modalService: NgbModal, private sampleservice:SampleService) { }
 
   open(content) {
-    const modalRef = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    let modalRef = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -69,7 +69,8 @@ export class NavbarComponent implements OnInit {
       error => console.log('samplepost error', error)
     )
 
-    
+    this.createCategoryForm.reset();
+
   } 
 
 }
