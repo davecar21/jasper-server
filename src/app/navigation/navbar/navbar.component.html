@@ -13,27 +13,15 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a href="#" class="nav-link">
-          <fa name="folder" placement="top" ngbTooltip="Add category" (click)="open(content)"></fa>
+          <fa name="folder" placement="top" ngbTooltip="Add category" (click)="openAdd()"></fa>
         </a>
       </li>
-
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="#">
-          <fa name="folder-o" placement="bottom" ngbTooltip="Add Sub-category"></fa>
-        </a>
-      </li> -->
 
       <li class="nav-item">
         <a href="#" class="nav-link">
           <fa name="edit" placement="top" ngbTooltip="Edit category"></fa>
         </a>
       </li>
-
-      <!-- <li class="nav-item">
-        <a href="#" class="nav-link">
-          <fa name="edit" placement="top" ngbTooltip="Edit sub-category"></fa>
-        </a>
-      </li> -->
 
       <li class="nav-item">
         <a href="#" class="nav-link">
@@ -43,35 +31,3 @@
     </ul>
   </div>
 </nav>
-
-<!-- Modals -->
-
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Create New Category</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-
-  <div class="modal-body">
-    <form [formGroup]="createCategoryForm">
-      <div class="form-group">
-        <label for="name">
-          Name:
-          <input type="text" name="label" id="categoryName" class="form-control" formControlName="label">
-        </label>
-        <br>
-        <label for="description">
-          Description:
-          <input type="text" name="description" id="categoryDesc" class="form-control" formControlName="description">
-        </label>
-      </div>
-    </form>
-  </div>
-
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="addCategory()">Submit</button>
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Cancel</button>
-  </div>
-</ng-template>

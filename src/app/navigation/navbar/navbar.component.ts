@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SampleService } from './../../core/services/sample.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { CategoryModalComponent } from 'src/app/components/modal/category-modal/category-modal.component';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class NavbarComponent implements OnInit {
   closeResult: string;
+  show: false;
 
   createCategoryForm = new FormGroup({
     label: new FormControl(''),
@@ -29,24 +31,30 @@ export class NavbarComponent implements OnInit {
 
   constructor(private modalService: NgbModal, private sampleservice:SampleService) { }
 
-  open(content) {
-    const modalRef = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+  openAdd() {
+    const modalRef = this.modalService.open(CategoryModalComponent);
+    modalRef.componentInstance.name = 'World';
   }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }
+  // openAdd(content) {
+  //   show = true;
+  //   const modalRef = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      
+  //     this.closeResult = `Closed with: ${result}`;
+  //   }, (reason) => {
+  //     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  //   });
+  // }
+
+  // private getDismissReason(reason: any): string {
+  //   if (reason === ModalDismissReasons.ESC) {
+  //     return 'by pressing ESC';
+  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+  //     return 'by clicking on a backdrop';
+  //   } else {
+  //     return  `with: ${reason}`;
+  //   }
+  // }
 
 
   ngOnInit() {
@@ -55,7 +63,7 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  addCategory(body){
+  addCategory(){
 
     console.log("JSON: ", this.testData);
     this.testData.label = this.createCategoryForm.value['label'];
@@ -68,8 +76,7 @@ export class NavbarComponent implements OnInit {
       result => console.log('samplepost result', result),
       error => console.log('samplepost error', error)
     )
-
-    
   } 
+
 
 }

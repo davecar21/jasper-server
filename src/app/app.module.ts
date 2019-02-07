@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // modules
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModules } from './shared/modules/ng-bootstrap.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
@@ -19,7 +19,7 @@ import { AlertService } from './core/services/alert.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { AlertComponent } from './components/alert/alert.component';
-import { ModalComponent } from './components/modal/modal.component';
+import { CategoryModalComponent } from './components/modal/category-modal/category-modal.component';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { ModalComponent } from './components/modal/modal.component';
     AppComponent,
     NavbarComponent,
     AlertComponent,
-    ModalComponent
+    CategoryModalComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +44,10 @@ import { ModalComponent } from './components/modal/modal.component';
   ],
   providers: [
     SampleService,
-    AlertService
+    AlertService,
+    NgbActiveModal
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NavbarComponent]
+  entryComponents: [CategoryModalComponent]
 })
 export class AppModule { }
