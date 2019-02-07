@@ -11,6 +11,10 @@ export class FolderService {
   constructor(private http: HttpClient) { }
 
   getFolders(): Observable<any> {
-      return this.http.get(environment.categoriesUrl)
+      return this.http.get(environment.categoriesUrl);
+  }
+
+  getSubfolder(category): Observable<any>{
+    return this.http.get(environment.apiUrl2+"subcategories/"+category);
   }
 }
