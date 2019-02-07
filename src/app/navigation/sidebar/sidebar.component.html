@@ -1,0 +1,8 @@
+<!-- <button class="btn btn-primary btn-block" *ngFor="let folder of folders">
+  {{folder.label._text}}
+</button> -->
+<div class="list-group">
+  <button *ngFor="let folder of folders" type="button" class="list-group-item list-group-item-action">
+    {{folder.label}}
+  </button>
+</div>
