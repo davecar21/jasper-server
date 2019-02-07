@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms';
-import { SampleService } from 'src/app/core/services/sample.service';
 import { FolderService } from 'src/app/core/services/folder/folder.service';
 
 

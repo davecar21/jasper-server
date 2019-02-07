@@ -1,4 +1,4 @@
-export class Folder {
+interface Folder {
     creationDate: string;
     label: string;
     permissionMask: string;

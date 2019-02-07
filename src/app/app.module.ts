@@ -20,6 +20,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { CategoryModalComponent } from './components/modal/category-modal/category-modal.component';
+import { EditCategoryModalComponent } from './components/modal/edit-category-modal/edit-category-modal.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CategoryModalComponent } from './components/modal/category-modal/catego
     AppComponent,
     NavbarComponent,
     AlertComponent,
-    CategoryModalComponent
+    CategoryModalComponent,
+    EditCategoryModalComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,6 @@ import { CategoryModalComponent } from './components/modal/category-modal/catego
     NgbActiveModal
   ],
   bootstrap: [AppComponent],
-  entryComponents: [CategoryModalComponent]
+  entryComponents: [CategoryModalComponent, EditCategoryModalComponent]
 })
 export class AppModule { }
