@@ -20,8 +20,9 @@ import { FolderService } from './core/services/folder/folder.service'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { AlertComponent } from './components/alert/alert.component';
-import { ModalComponent } from './components/modal/modal.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
+import { CategoryModalComponent } from './components/modal/category-modal/category-modal.component';
+import { EditCategoryModalComponent } from './components/modal/edit-category-modal/edit-category-modal.component';
 
 
 @NgModule({
@@ -29,8 +30,9 @@ import { SidebarComponent } from './navigation/sidebar/sidebar.component';
     AppComponent,
     NavbarComponent,
     AlertComponent,
-    ModalComponent,
-    SidebarComponent
+    SidebarComponent,
+    CategoryModalComponent,
+    EditCategoryModalComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,6 @@ import { SidebarComponent } from './navigation/sidebar/sidebar.component';
     FolderService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NavbarComponent]
+  entryComponents: [NavbarComponent, CategoryModalComponent, EditCategoryModalComponent]
 })
 export class AppModule { }

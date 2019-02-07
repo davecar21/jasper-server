@@ -17,4 +17,9 @@ export class FolderService {
   getSubfolder(category): Observable<any>{
     return this.http.get(environment.apiUrl2+"subcategories/"+category);
   }
+
+  createFolder(body : any) {
+
+    return this.http.post(environment.addCategoriesUrl, body)
+  }
 }

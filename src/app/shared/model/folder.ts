@@ -1,4 +1,4 @@
-export class Folder {
+interface Folder {
     creationDate: string;
     label: string;
     permissionMask: string;
@@ -6,4 +6,5 @@ export class Folder {
     uri: string;
     version: string;
     resourceType: string;
+    description: string;
   }

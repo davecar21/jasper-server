@@ -12,9 +12,7 @@ const httpOptions = {
   })
 };
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class SampleService {
 
   constructor(private http: HttpClient) { }
