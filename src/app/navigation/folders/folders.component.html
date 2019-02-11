@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+
+    <ul class="list-group list-subgroup">
+        <li class="test-class list-group-item list-group-item-action" *ngFor="let data of datas" (click)="showSubcategories(data.uri)">
+          {{ data.label }}
+        </li>
+    </ul>
+
+    <ng-template #subCategories></ng-template>
+
+  </div>
+</div>

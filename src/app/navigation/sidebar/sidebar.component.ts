@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { FolderService } from '../../core/services/folder/folder.service';
 import { Observable } from 'rxjs';
+import { FoldersComponent } from '../folders/folders.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,43 +10,44 @@ import { Observable } from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
 
+  @ViewChild('subCategories', { read: ViewContainerRef }) subCategories: ViewContainerRef;
 
   public isCollapsed = false;
 
-  folders:Observable<any>;
-  category:Observable<any>;
+  folders: Observable<any>;
+  category: any;
 
-  constructor(private folderService:FolderService) { }
+  constructor(private folderService: FolderService, private resolver: ComponentFactoryResolver) {
+  }
+
 
   ngOnInit() {
     this.folderService.getFolders().subscribe(
-      result=>{
+      result => {
         this.folders = result.resourceLookup;
       }
     );
   }
 
-  showSubcategories(uri, event:any){
-    console.warn(event.target.innerHTML);
-    let selectedCategory = event.target.innerHTML;
+  showSubcategories(uri, event: any) {
 
-    var split_string = uri.split("/");
-    console.log(split_string[2]);
-    this.category = null;
+    this.initSubfolder(uri);
 
-    this.folderService.getSubfolder(split_string[2]).subscribe(
+  }
+
+  initSubfolder(uri) {
+    this.folderService.getSubfolder(uri).subscribe(
       res => {
         this.category = res.resourceLookup;
-        console.log(this.category);
+        console.log('subFolder',this.category);
+        const foldersFactory = this.resolver.resolveComponentFactory(FoldersComponent);
+        const subCategories = this.subCategories.createComponent(foldersFactory);
+        subCategories.instance.datas = this.category;
       },
       error => {
         console.error(error);
       }
     );
-
-    // TODO: Instantiation of Dynamic Components
-
-    
   }
 
 }

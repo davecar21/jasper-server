@@ -23,6 +23,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
 import { CategoryModalComponent } from './components/modal/category-modal/category-modal.component';
 import { EditCategoryModalComponent } from './components/modal/edit-category-modal/edit-category-modal.component';
+import { FoldersComponent } from './navigation/folders/folders.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditCategoryModalComponent } from './components/modal/edit-category-mod
     AlertComponent,
     SidebarComponent,
     CategoryModalComponent,
-    EditCategoryModalComponent
+    EditCategoryModalComponent,
+    FoldersComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,6 @@ import { EditCategoryModalComponent } from './components/modal/edit-category-mod
     FolderService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NavbarComponent, CategoryModalComponent, EditCategoryModalComponent]
+  entryComponents: [NavbarComponent, CategoryModalComponent, EditCategoryModalComponent, FoldersComponent]
 })
 export class AppModule { }

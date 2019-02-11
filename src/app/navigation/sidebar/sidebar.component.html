@@ -7,24 +7,20 @@
         <fa name="chevron-up" *ngIf="isCollapsed"></fa>
         <span class="folder-name">Folders / Reports</span>
       </li>
-      <li id="collapseExample" [ngbCollapse]="isCollapsed" *ngFor="let folder of folders" class="list-group-item list-group-item-action" (click)="showSubcategories(folder.uri, $event)">
+      <li id="collapseExample" [ngbCollapse]="isCollapsed" *ngFor="let folder of folders; let i=index" class="list-group-item list-group-item-action" (click)="showSubcategories(folder.uri, $event)">
         <span class="close-folder-icon">
             <fa name="folder"></fa>
-            <span class="folder-name">{{folder.label}}</span>
+            <span class="folder-name">{{ folder.label }}</span>
         </span>
 
         <span class="open-folder-icon">
           <fa name="folder-open" placement="right" ngbTooltip="Show subcategories"></fa>
-          <!-- <span class="folder-name">{{folder.label}}</span> -->
         </span>
 
-        <ul class="list-group list-subgroup" *ngIf="category != null">
-          <li class="list-group-item" *ngFor="let category_list of category">
-            {{ category_list.label }}
-          </li>
-        </ul>
-        
+        <ng-template #subCategories></ng-template>
+     
       </li>
     </ul>
+    <br>
   </div>
 </div>
