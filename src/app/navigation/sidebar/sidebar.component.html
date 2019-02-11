@@ -7,7 +7,7 @@
         <fa name="chevron-up" *ngIf="isCollapsed"></fa>
         <span class="folder-name">Folders</span>
       </li>
-      <li id="collapseExample" [ngbCollapse]="isCollapsed" *ngFor="let folder of folders;let i=index" class="list-group-item list-group-item-action" (click)="showSubcategories(folder.uri, $event)">
+      <li id="collapseExample" [ngbCollapse]="isCollapsed" *ngFor="let folder of folders;let i=index" class="list-group-item list-group-item-action" (click)="showSubcategories(folder.uri, $event,i)">
         <fa name="folder"></fa>
         <span class="folder-name">{{folder.label}}</span>
 
@@ -15,7 +15,7 @@
           <fa name="folder-open" placement="right" ngbTooltip="Show subcategories"></fa>
         </span>
 
-        <ul class="list-group list-subgroup" *ngIf="category != null">
+        <ul class="list-group list-subgroup" *ngIf="category != null && i == indexNumber">
           <li class="list-group-item" *ngFor="let category_list of category">
             {{ category_list.label }}
           </li>

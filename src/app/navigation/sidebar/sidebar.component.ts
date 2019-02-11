@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
 
   folders:Observable<any>;
   category:Observable<any>;
+  indexNumber:Number;
 
   constructor(private folderService:FolderService) { }
 
@@ -24,8 +25,9 @@ export class SidebarComponent implements OnInit {
     );
   }
 
-  showSubcategories(uri, event:any){
+  showSubcategories(uri, event:any, index){
     this.category = null;
+    this.indexNumber = index;
 
     this.folderService.getSubfolder(uri).subscribe(
       res => {
