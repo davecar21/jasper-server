@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
@@ -15,8 +15,7 @@ export class FolderService {
   }
 
   getSubfolder(category): Observable<any>{
-    let params = new HttpParams().set('uri', category);
-    return this.http.get(environment.apiUrl2+"subcategories",{ params });
+    return this.http.get(environment.apiUrl2+"subcategories/"+category);
   }
 
   createFolder(body : any) {
