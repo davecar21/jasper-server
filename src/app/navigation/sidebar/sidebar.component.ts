@@ -25,15 +25,11 @@ export class SidebarComponent implements OnInit {
   }
 
   showSubcategories(uri, event:any){
-    console.warn(event.target);
-    var split_string = uri.split("/");
-    console.log(split_string[2]);
     this.category = null;
 
-    this.folderService.getSubfolder(split_string[2]).subscribe(
+    this.folderService.getSubfolder(uri).subscribe(
       res => {
         this.category = res.resourceLookup;
-        console.log(this.category);
       },
       error => {
         console.error(error);
