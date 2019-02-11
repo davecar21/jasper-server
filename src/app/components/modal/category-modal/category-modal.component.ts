@@ -18,7 +18,7 @@ export class CategoryModalComponent implements OnInit {
   });
 
   
-  public folderInfo = { "label":'', "description": ''}
+  public folderInfo = { "label":'', "description": '', "uri":''}
 
 
   constructor(public activeModal: NgbActiveModal, private folderService:FolderService) { }
@@ -36,7 +36,7 @@ export class CategoryModalComponent implements OnInit {
 
     this.folderInfo.label = this.createCategoryForm.value['label'];
     this.folderInfo.description = this.createCategoryForm.value['description'];
-    
+    this.folderInfo.uri = "/reports";
     // TODO: Use EventEmitter with form value
     console.warn(this.createCategoryForm.value);
     
