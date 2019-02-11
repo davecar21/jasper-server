@@ -20,7 +20,7 @@ export class FolderService {
   }
 
   createFolder(body : any) {
-
-    return this.http.post(environment.addCategoriesUrl, body)
+    const myheader = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(environment.addCategoriesUrl, body, {headers: myheader});
   }
 }
