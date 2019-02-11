@@ -44,6 +44,9 @@ export class CategoryModalComponent implements OnInit {
       result => console.log('Create Folder result', result),
       error => console.log('Create Folder error', error)
     )
+
+    this.createCategoryForm.reset();
+    this.closeModal();
   } 
   
 

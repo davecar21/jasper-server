@@ -24,7 +24,6 @@ import { SidebarComponent } from './navigation/sidebar/sidebar.component';
 import { CategoryModalComponent } from './components/modal/category-modal/category-modal.component';
 import { EditCategoryModalComponent } from './components/modal/edit-category-modal/edit-category-modal.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

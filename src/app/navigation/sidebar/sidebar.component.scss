@@ -1,9 +1,18 @@
+.container-fluid{
+    // border: 1px solid rgba(0,0,0,.125);
+    font-size: 12px;
+}
+
+ul.list-group, li.list-group-item{
+    border: none !important;
+}
+
 ul.list-subgroup{
     margin-left: 3em;
 }
 
 #folder-collapse{
-    width: 100%;
+    width: 31em;
     display: inline-block;
 }
 
@@ -13,5 +22,9 @@ span.folder-name{
 
 span.open-folder-icon{
     padding-left: 20px;
+    cursor: pointer;
+}
+
+span.folder-name{
     cursor: pointer;
 }

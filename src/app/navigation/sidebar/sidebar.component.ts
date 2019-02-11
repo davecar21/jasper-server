@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
 
+
   public isCollapsed = false;
 
   folders:Observable<any>;
@@ -25,7 +26,9 @@ export class SidebarComponent implements OnInit {
   }
 
   showSubcategories(uri, event:any){
-    console.warn(event.target);
+    console.warn(event.target.innerHTML);
+    let selectedCategory = event.target.innerHTML;
+
     var split_string = uri.split("/");
     console.log(split_string[2]);
     this.category = null;
@@ -39,6 +42,10 @@ export class SidebarComponent implements OnInit {
         console.error(error);
       }
     );
+
+    // TODO: Instantiation of Dynamic Components
+
+    
   }
 
 }
